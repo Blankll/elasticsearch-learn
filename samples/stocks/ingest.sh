@@ -52,7 +52,17 @@ awk -F, 'NR==1{for(i=1;i<=NF;i++)h[i]=$i; next}
   printf("{\"index\":{}}\n");
   printf("{");
   for(i=1;i<=NF;i++){
-    printf("\"%s\":\"%s\"",(h[i]), $i);
+    key=h[i];
+    val=$i;
+    if(val == "" || val == "\"\""){
+      printf("\"%s\":null", key);
+    } else if(key=="close" || key=="open" || key=="high" || key=="low"){
+      printf("\"%s\":%s", key, val); # float, no quotes
+    } else if(key=="volume"){
+      printf("\"%s\":%d", key, val); # long, no quotes
+    } else {
+      printf("\"%s\":\"%s\"", key, val); # date/keyword, keep quotes
+    }
     if(i<NF)printf(",");
   }
   printf("}\n");
@@ -64,8 +74,8 @@ for batch in /tmp/bulk_stocks_batch_*; do
     --cacert config/certs/ca/ca.crt \
     --data-binary @"$batch")
   if echo "$BULK_RESP" | grep -q '"errors":true'; then
-    echo "Bulk ingest failed in batch $batch:"
-    echo "$BULK_RESP" | jq
+    echo "Bulk ingest failed in batch"
+    echo "$BULK_RESP" | jq -c '.items[] | select(.index.error) | {error: .index.error.reason, document: .index}'
     exit 1
   fi
   echo "Batch $batch ingested successfully."

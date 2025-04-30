@@ -1,5 +1,6 @@
 {
   "mappings": {
+    "dynamic": false,
     "properties": {
       "close": {
         "type": "float"
@@ -14,13 +15,7 @@
         "type": "float"
       },
       "name": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
+        "type": "keyword"
       },
       "open": {
         "type": "float"
