@@ -1,0 +1,33 @@
+{
+  "mappings": {
+    "properties": {
+      "close": {
+        "type": "float"
+      },
+      "date": {
+        "type": "date"
+      },
+      "high": {
+        "type": "float"
+      },
+      "low": {
+        "type": "float"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "open": {
+        "type": "float"
+      },
+      "volume": {
+        "type": "long"
+      }
+    }
+  }
+}
