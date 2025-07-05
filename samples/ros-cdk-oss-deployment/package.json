@@ -9,20 +9,21 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.0",
-    "@types/node": "~18.11.9",
-    "@types/table": "^4.0.7",
-    "typescript": "^4.0.0",
-    "jest": "^27.0.0",
-    "ts-jest": "^27.0.0",
-    "ts-node": "^8.1.0",
-    "babel-jest": "^27.0.0",
+    "@alicloud/ros-cdk-assert": "^1.8.0",
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "7.12.7",
     "@babel/preset-typescript": "^7.12.7",
-    "@alicloud/ros-cdk-assert": "^1.8.0"
+    "@types/jest": "^27.0.0",
+    "@types/node": "~18.11.9",
+    "@types/table": "^4.0.7",
+    "babel-jest": "^27.0.0",
+    "jest": "^27.0.0",
+    "ts-jest": "^27.0.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^4.0.0"
   },
   "dependencies": {
-    "@alicloud/ros-cdk-core": "^1.8.0"
+    "@alicloud/ros-cdk-core": "^1.8.0",
+    "@alicloud/ros-cdk-ossdeployment": "^1.8.0"
   }
 }

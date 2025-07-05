@@ -2,27 +2,13 @@
   "mappings": {
     "dynamic": false,
     "properties": {
-      "close": {
-        "type": "float"
-      },
-      "date": {
-        "type": "date"
-      },
-      "high": {
-        "type": "float"
-      },
-      "low": {
-        "type": "float"
-      },
-      "name": {
-        "type": "keyword"
-      },
-      "open": {
-        "type": "float"
-      },
-      "volume": {
-        "type": "long"
-      }
+      "close": { "type": "float" },
+      "date": { "type": "date" },
+      "high": { "type": "float" },
+      "low": { "type": "float" },
+      "name": { "type": "keyword" },
+      "open": { "type": "float" },
+      "volume": { "type": "long" }
     }
   }
 }
